@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.mainCont{
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headerCont{
+  background: rgba(255, 255, 255, 0.50);
+  box-shadow: 0px 0px 16px 0px rgba(58, 73, 167, 0.20);
+  backdrop-filter: blur(12px);
+}
+
+.mainButton:hover{
+  box-shadow: 0px 12px 12px 0px rgba(76, 138, 225, 0.30);
+}
+
+.button2:hover{
+  box-shadow: 0px 12px 12px 0px rgba(27, 50, 82, 0.30);
+}
+
+/* CustomScroll Styling */
+.customScroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; 
+}
+
+.customScroll::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #c2c0c0; 
+}
+
+.cardShadow{
+  filter: drop-shadow(0px 16px 8px rgba(27, 50, 82, 0.05));
+}
+
+/* InfiniteTextSlider */
+.banner{
+  background: linear-gradient(91deg, #4982B7 -6.19%, #1B3252 101.27%);
+}
+
+.text-wrapper {
+  animation: scrollText 50s linear infinite; /* Adjust animation duration as needed */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Adjust percentage for different text repetition */
+  }
+}
+
+.customBG{
+   background: linear-gradient(96deg, #4982B7 -4.81%, #1B3252 94.08%);
+}
+
+.customShadow{
+  filter: drop-shadow(0.4947368800640106px 0.9894737601280212px 3.957895040512085px rgba(0, 0, 0, 0.05));
+}
+
+.customShadowBlue{
+  filter: drop-shadow(0px 0px 28px rgba(86, 166, 249, 0.70));
+}
+
+.customShadow2{
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.customShadow3{
+  box-shadow: 2px 4px 8px 5px rgba(0, 0, 0, 0.10);
+}
+
+.customShadow4{
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.15);
+}
+
+.customShadow5{
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
+}
+
+.week {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
