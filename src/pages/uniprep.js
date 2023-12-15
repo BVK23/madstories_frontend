@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
   let accessToken = cookies['access_token'];
 
   if (!accessToken) {
-    return { redirect: { destination: '/?message=session-expired', permanent: false } };
+    return { redirect: { destination: '/?message=no-cookies', permanent: false } };
   }
 
   let response = await fetch(process.env.NEXT_USER_DATA_API_URL, {

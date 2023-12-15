@@ -34,6 +34,9 @@ const Home = () => {
     if (message === 'session-expired' || message === 'unauthorized') {
       setAlertMessage('Session expired.');
     }
+    if (message === 'no-cookies') {
+      setAlertMessage('Session doesnot exist');
+    }
   }, []);
 
   const handleDismissAlert = () => {
