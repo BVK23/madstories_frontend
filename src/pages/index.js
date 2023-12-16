@@ -68,8 +68,8 @@ const Home = () => {
       const response = await fetch(process.env.NEXT_PUBLIC_CHATBOT_API_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'X-Chatbot-Secret': process.env.NEXT_SHARED_SECRET_TOKEN
+          'Content-Type': 'application/json'
+          // 'X-Chatbot-Secret': process.env.NEXT_SHARED_SECRET_TOKEN
         },
         body: JSON.stringify({ message: message })
       });
