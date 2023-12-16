@@ -69,7 +69,7 @@ const Home = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': process.env.NEXT_SHARED_SECRET_TOKEN
+          'X-Chatbot-Secret': process.env.NEXT_SHARED_SECRET_TOKEN
         },
         body: JSON.stringify({ message: message })
       });
