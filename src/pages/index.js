@@ -186,20 +186,14 @@ const Home = () => {
       sequence={[
         "Securing a job abroad is a mad story.",
         1000, // wait 1s before replacing "Mice" with "Hamsters"
-        "We had a mad story, Now its your turn.",
+        "We had a mad story.",
         1000,
-        "Let's get you a mad story.",
+        "Now let's get you a mad story.",
         1000,
-        "Unibot's my name, acing your job hunt is my game.",
+        "Welcome to Unimad",
         1000,
-        "Got job-search questions? I've got answers!",
-        1000,
-        "Shoot your questions",
-        1000,
-        "Login to see how 8 weeks can transform your job hunt!",
-        1000,
-        "Welcome to Unimad — Mad Life Mad Vibes",
-        2000
+        "Mad Life Mad Vibes",
+        1000
       ]}
       wrapper="span"
       speed={80} //50
