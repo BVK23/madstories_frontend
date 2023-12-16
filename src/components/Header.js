@@ -54,10 +54,10 @@ const Header = () => {
           <Link href="/framework" className="font-[600] w-fit pb-2">Framework</Link>
           {/* <Link href="/uniprep" className="font-[600] w-fit pb-2">Uniprep</Link> */}
           {isLoggedIn ? (
-          <Link href="/uniprep" className="hidden md2:flex button2 px-5 py-2.5 rounded-full bg-main transition hover:bg-main-dark text-white w-fit">
+          <Link href="/uniprep" className="flex button2 px-5 py-2.5 rounded-full bg-main transition hover:bg-main-dark text-white w-fit">
             Dashboard
           </Link>
-        ) : (<Link href="#" onClick={handleLinkedInAuth} className="hidden md2:flex button2 px-5 py-2.5 rounded-full bg-main transition hover:bg-main-dark text-white w-fit">
+        ) : (<Link href="#" onClick={handleLinkedInAuth} className="flex button2 px-5 py-2.5 rounded-full bg-main transition hover:bg-main-dark text-white w-fit">
           Sign in with LinkedIn
         </Link>
         )} 

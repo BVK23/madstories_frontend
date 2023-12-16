@@ -61,7 +61,8 @@ const Uniprep = ({ userData }) => {
     const [tab, setTab] = useState("My Plan Progress");
     const [moreSkills, setMoreSkills] = useState(false);
     const [week, setWeek] = useState("Week 4");
-    const handleLogout = () => {
+    const handleLogout = (e) => {
+      e.preventDefault();
       window.location.href = process.env.NEXT_LOGOUT_URL;
   };
     
@@ -78,7 +79,7 @@ const Uniprep = ({ userData }) => {
             <div className="flex gap-1 flex-col mb-2 px-2">
              <Link href="/about" className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">About</Link>
              <Link href="/mad-stories" className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">MAD Stories</Link>
-             <button onClick={handleLogout} className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">Logout</button>
+             <Link href="#" onClick={handleLogout} className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">Logout</Link>
              </div>
          </div>
         </div>
