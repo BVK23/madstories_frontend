@@ -19,7 +19,10 @@ const Framework = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  
+  const handleLinkedInAuth = (e) => {
+    e.preventDefault(); // This prevents the default link action
+    window.location.href =  process.env.NEXT_PUBLIC_LINKEDIN_AUTH_URL;
+  };
 
   return (
     <>
@@ -141,7 +144,7 @@ const Framework = () => {
 
 
        <div className="mainCont mb-[150px] md2:mb-[200px]">
-        <button className="mainButton flex items-center gap-3 border border-main-dark rounded-full transition hover:bg-main hover:text-white hover:border-main font-medium text-[19px] w-fit px-5 py-3 mt-10 mx-auto">Count me in <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z" fill="currentColor"/></svg></button>
+        <button onClick={handleLinkedInAuth} className="mainButton flex items-center gap-3 border border-main-dark rounded-full transition hover:bg-main hover:text-white hover:border-main font-medium text-[19px] w-fit px-5 py-3 mt-10 mx-auto">Count me in <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z" fill="currentColor"/></svg></button>
        </div>
 
           {/* ... and so on for other weeks */}
