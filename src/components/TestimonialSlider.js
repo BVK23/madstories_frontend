@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const testimonials = [
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E03AQFpwxF-rB03KQ/profile-displayphoto-shrink_800_800/0/1685884567222?e=1707955200&v=beta&t=LaXYxXt1aJausYyGaHQioSGUc-c4T0D9z9S3Wh30AOQ",
     name: "Keerthana",
     company: "Queens University Belfast",
     occupation: "MSc in Management",
@@ -11,15 +11,15 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D5635AQEUsaLQqpmCrA/profile-framedphoto-shrink_400_400/0/1701707674325?e=1703365200&v=beta&t=K5H96G6sDdPnucSN9qObnFzD0Juw9TWVarZskS_gCMc",
     name: "Sapna",
-    company: "University of York",
-    occupation: "Data Scientist",
+    company: "University of Edinburgh",
+    occupation: "MSc HR Management",
     comment: "Indeed, attending your session today was genuinely worthwhile. The way you broke down the strategic plan was refreshingly insightful, and I'm eager to implement the steps you shared.",
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E35AQHVf-ZikeikmQ/profile-framedphoto-shrink_400_400/0/1696960004431?e=1703365200&v=beta&t=-8EPkMAbIDoqHq9MSA3v4Ihp9UWEV-_-BXGUl64lAH0",
     name: "Santosh",
     company: "University of Sheffield",
     occupation: "MSc in Management",
@@ -27,7 +27,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E03AQH7PcanaJ-glQ/profile-displayphoto-shrink_400_400/0/1675117726392?e=1707955200&v=beta&t=hX1opzeRk2iWjxpV4w3Px4e2BNNovDmemetAxItdh7c",
     name: "Sanjna",
     company: "University of Aberdeen",
     occupation: "MSc in Cybersecurity",
@@ -35,7 +35,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E03AQErnfS8b51bqA/profile-displayphoto-shrink_400_400/0/1687808396984?e=1707955200&v=beta&t=1t17IClzmGoYrhV8Ix2E7ESA7txHv_2EcMnUZ8U_YbA",
     name: "Dhana",
     company: "University of Sheffield",
     occupation: "MSc in Data Analytics",
@@ -43,7 +43,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E35AQHatyNZrBk7Fg/profile-framedphoto-shrink_400_400/0/1702383877501?e=1703365200&v=beta&t=KXR9qTPim3BFDBn0owD48Wky9swZobirypzaFp6wGiA",
     name: "Hema",
     company: "University of Birmingham",
     occupation: "MSc in Engineering Management",
@@ -51,7 +51,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E03AQGVqhui1QsjmA/profile-displayphoto-shrink_400_400/0/1693133173636?e=1707955200&v=beta&t=Zk0VMjxtb8ZxPlGJ9V6y622Y4YGMfAua-h0nkVeyk8w",
     name: "Shobith",
     company: "University of Birmingham",
     occupation: "MSc in Engineering Management",
@@ -59,7 +59,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4D35AQE8mvLrOu6NUQ/profile-framedphoto-shrink_400_400/0/1695509997780?e=1703365200&v=beta&t=7CO9Qd4N0eP46lv5FI8uTEU4TtG4TsfMc4QjAobmABs",
     name: "Meera",
     company: "University of Sheffield",
     occupation: "MSc in Management",
@@ -67,7 +67,7 @@ const testimonials = [
   },
 
   {
-    image: "",
+    image: "https://media.licdn.com/dms/image/D4E35AQHyu7CM26UXGA/profile-framedphoto-shrink_400_400/0/1689865522971?e=1703365200&v=beta&t=6AaLZtDXkVDN4iuy45mTryFRxsS2vk-b6DYehNu3BQw",
     name: "Simi",
     company: "University of Aberdeen",
     occupation: "MSc in Information Technology",
@@ -140,7 +140,8 @@ const TestimonialSlider = () => {
         {cards.map((testimonial,index) => (
           <div key={index} className="cardShadow min-w-[300px] max-w-[300px] sm:min-w-[400px] sm:max-w-[400px] bg-white border border-main-dark rounded-2xl px-5 py-6 pb-20">
             <div className="flex items-center gap-3 mb-8">
-            <div className="bg-[#292929] w-20 h-20 rounded-full"></div>
+            {/* <div className="bg-[#292929] w-20 h-20 rounded-full"></div> */}
+            <img src={testimonial.image} alt="person_img" className="bg-[#292929] w-20 h-20 rounded-full" />
               <div>
                <div className="text-[17px] font-semibold">{testimonial.name}</div>
                <div className="text-[#383838] font-medium mb-[1px]">{testimonial.company}</div>
