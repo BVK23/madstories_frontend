@@ -7,13 +7,34 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 
 
-const ChatbotMessage = ({ text }) => (
+// const ChatbotMessage = ({ text }) => (
+//   <div className="left flex">
+//     <div className="bg-[#E8EAEE] text-[#595959] px-4 py-3" style={{ borderRadius: "20px 20px 20px 0px" }}>
+//       {text}
+//     </div>
+//   </div>
+// );
+const LoadingAnimation = () => (
+  <div
+    className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+    role="status">
+    <span
+      className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+      Loading...
+    </span>
+  </div>
+);
+
+
+const ChatbotMessage = ({ text, isLoading }) => (
   <div className="left flex">
     <div className="bg-[#E8EAEE] text-[#595959] px-4 py-3" style={{ borderRadius: "20px 20px 20px 0px" }}>
-      {text}
+      {isLoading ? <LoadingAnimation /> : text}
     </div>
   </div>
 );
+
+
 
 const UserMessage = ({ text }) => (
   <div className="right flex justify-end">
@@ -61,7 +82,12 @@ const Home = () => {
     if (!message.trim()) return;  // Ignore empty messages
   
     // Add user's message to chat history
-    setChatHistory([...chatHistory, { type: 'user', text: message }]);
+    // setChatHistory([...chatHistory, { type: 'user', text: message }]);
+    setChatHistory(currentHistory => [
+      ...currentHistory, 
+      { type: 'user', text: message },
+      { type: 'bot', text: 'Loading...', loading: true }  // Temporary loading message
+    ]);
     setUserInput('');
     setIsLoading(true);
     try {
@@ -77,7 +103,11 @@ const Home = () => {
       if (response.ok) {
         const data = await response.json();
         // Add chatbot's response to chat history
-        setChatHistory(currentHistory => [...currentHistory, { type: 'bot', text: data.response }]);
+        // setChatHistory(currentHistory => [...currentHistory, { type: 'bot', text: data.response }]);
+        setChatHistory(currentHistory => [
+          ...currentHistory.filter(msg => !msg.loading),
+          { type: 'bot', text: data.response }
+        ]);
       } else {
         console.error('Error from server');
       }
@@ -122,8 +152,15 @@ const Home = () => {
         {/* <div className="left flex"><div className="bg-[#E8EAEE] text-[#595959] px-4 py-3" style={{borderRadius: "20px 20px 20px 0px"}}>Hi Tanya! How can I help you?</div></div>
         <div className="right flex justify-end"><div className="bg-[#EFF7FF] text-main-dark px-4 py-3" style={{borderRadius: "20px 20px 0px 20px"}}>I need to find a job in UK</div></div> */}
         <ChatbotMessage text="You are 8-weeks away from an interview. Shoot your job search queries?" />
+        {/* {chatHistory.map((message, index) => (
+          message.type === 'user' ? <UserMessage key={index} text={message.text} /> : <ChatbotMessage key={index} text={message.text} isLoading={isLoading} />
+        ))} */}
         {chatHistory.map((message, index) => (
-          message.type === 'user' ? <UserMessage key={index} text={message.text} /> : <ChatbotMessage key={index} text={message.text} />
+          message.type === 'user' ? 
+            <UserMessage key={index} text={message.text} /> : 
+            message.loading ? 
+              <ChatbotMessage key={index} isLoading={true} /> : 
+              <ChatbotMessage key={index} text={message.text} />
         ))}
         </div>
 
@@ -133,7 +170,7 @@ const Home = () => {
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSendMessage() }/>
-        <button onClick={handleSendMessage} className="pl-3 pr-5"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16.0868V10.0868L8 8.08679L0 6.08679V0.086792L19 8.08679L0 16.0868Z" fill="black"/></svg></button>
+        <button onClick={() => handleSendMessage(userInput)} className="pl-3 pr-5"><svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16.0868V10.0868L8 8.08679L0 6.08679V0.086792L19 8.08679L0 16.0868Z" fill="black"/></svg></button>
       </div>
       </div>
       </Fade>
@@ -172,9 +209,12 @@ const Home = () => {
     ”
         </div>
         <div className="flex items-center gap-x-5 gap-y-3 flex-wrap mt-8">
-        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit">Job search strategies for international students?</button>
-        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit">How can I stand out in my job application?</button>
-        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit">How to crack a job as a complete fresher?</button>
+        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit"
+         onClick={() => handleSendMessage("Job search strategies for international students?")}>Job search strategies for international students?</button>
+        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit"
+        onClick={() => handleSendMessage("How can I stand out in my job application?")}>How can I stand out in my job application?</button>
+        <button className="mainButton flex px-4 py-3 font-[600] border border-main-dark rounded-lg transition hover:bg-main hover:text-white hover:border-main w-fit"
+         onClick={() => handleSendMessage("How to crack a job as a complete fresher?")}>How to crack a job as a complete fresher?</button>
         </div>
       </div>
       </Fade>
