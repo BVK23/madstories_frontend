@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { parseCookies } from 'nookies';
+// import { parseCookies } from 'nookies';
 
 const Header = ({ isLoggedIn }) => {
   const [menu, setmenu] = useState("translate-x-full");
+  
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLinkedInAuth = (e) => {
