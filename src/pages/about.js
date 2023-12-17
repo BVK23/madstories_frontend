@@ -1,11 +1,21 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const About = () => {
+
+import { parseCookies } from 'nookies';
+
+export const getServerSideProps = (context) => {
+  const cookies = parseCookies(context);
+  const isLoggedIn = !!cookies['access_token'];
+
+  return { props: { isLoggedIn } };
+};
+
+const About = ({ isLoggedIn }) => {
   return (
     <>
      <div className="bg-[#F5F5F5] overflow-hidden">
-       <Header/>
+      <Header isLoggedIn={isLoggedIn} />
 
         <div className="mainCont relative mb-[150px] mt-[150px] md2:mt-[200px]">
          <div className="relative text-main-dark min-h-[calc(100vh-608px)] z-30">

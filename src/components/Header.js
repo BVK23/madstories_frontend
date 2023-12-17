@@ -2,17 +2,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { parseCookies } from 'nookies';
 
-const Header = () => {
+const Header = ({ isLoggedIn }) => {
   const [menu, setmenu] = useState("translate-x-full");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    // Check for access token in cookies
-    const cookies = parseCookies();
-    setIsLoggedIn(!!cookies['access_token']);
-  }, []);
-
-  
   const handleLinkedInAuth = (e) => {
     e.preventDefault(); // This prevents the default link action
     window.location.href =  process.env.NEXT_PUBLIC_LINKEDIN_AUTH_URL;

@@ -67,7 +67,7 @@ const Uniprep = ({ userData }) => {
     //   window.location.href = process.env.NEXT_LOGOUT_URL;
     // };
     const handleLogout = () => {
-      window.location.href = "https://app.madstories.xyz/logout";
+      window.location.href = process.env.NEXT_LOGOUT_URL;
     }; 
 
   return (

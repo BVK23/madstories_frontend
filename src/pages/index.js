@@ -6,7 +6,15 @@ import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 import { useState, useEffect } from 'react';
 
+import { parseCookies } from 'nookies';
 
+
+export const getServerSideProps = (context) => {
+  const cookies = parseCookies(context);
+  const isLoggedIn = !!cookies['access_token'];
+
+  return { props: { isLoggedIn } };
+};
 // const ChatbotMessage = ({ text }) => (
 //   <div className="left flex">
 //     <div className="bg-[#E8EAEE] text-[#595959] px-4 py-3" style={{ borderRadius: "20px 20px 20px 0px" }}>
@@ -45,7 +53,7 @@ const UserMessage = ({ text }) => (
 );
 
 
-const Home = () => {
+const Home = ({ isLoggedIn }) => {
 
   const [alertMessage, setAlertMessage] = useState('');
 
@@ -131,7 +139,7 @@ const Home = () => {
       </div>
     )}
      <div className="relative max-w-[1200px] mx-auto sm:min-h-[calc(100vh-150px)] md2:min-h-[calc(100vh-200px)]">
-     <Header/>
+     <Header isLoggedIn={isLoggedIn} />
      <img src="/images/circle1.svg" alt="circle bg" className="absolute -top-[200px] sm2:-top-[300px] -right-[200px] sm2:-right-[350px] sm:-right-[500px]" />
 
      <Fade bottom>
