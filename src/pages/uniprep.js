@@ -61,11 +61,15 @@ const Uniprep = ({ userData }) => {
     const [tab, setTab] = useState("My Plan Progress");
     const [moreSkills, setMoreSkills] = useState(false);
     const [week, setWeek] = useState("Week 4");
-    const handleLogout = (e) => {
-      e.preventDefault();
-      window.location.href = process.env.NEXT_LOGOUT_URL;
-  };
     
+    // const handleLogout = (e) => {
+    //   e.preventDefault();
+    //   window.location.href = process.env.NEXT_LOGOUT_URL;
+    // };
+    const handleLogout = () => {
+      window.location.href = "https://app.madstories.xyz/logout";
+    }; 
+
   return (
     <div className="bg-[#F5F5F5] text-main-dark overflow-hidden">
      <div className="w-full p-5">
@@ -79,7 +83,10 @@ const Uniprep = ({ userData }) => {
             <div className="flex gap-1 flex-col mb-2 px-2">
              <Link href="/about" className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">About</Link>
              <Link href="/mad-stories" className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">MAD Stories</Link>
-             <Link href="#" onClick={handleLogout} className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">Logout</Link>
+             {/* <Link href="#" onClick={handleLogout} className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">Logout</Link> */}
+             <button onClick={handleLogout} className="bg-white transition hover:bg-[#1B3252] hover:bg-opacity-10 text-[15px] flex w-full font-semibold rounded-full px-2.5 py-2">
+                Logout
+              </button>
              </div>
          </div>
         </div>
