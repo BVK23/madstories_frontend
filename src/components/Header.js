@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { useAuth } from '../src/context/authContext'; // Adjust the path as necessary
+import { useAuth } from '../context/authContext'; // Adjust the path as necessary
 
 
 const Header = () => {
