@@ -26,6 +26,7 @@ export async function getServerSideProps(context) {
     });
     
     if (refreshResponse.ok) {
+      destroyCookie(context, 'access_token');
       const refreshData = await refreshResponse.json();
       accessToken = refreshData.access;
       setCookie(context, 'access_token', accessToken, { path: '/' });
@@ -67,9 +68,14 @@ const Uniprep = ({ userData }) => {
     //   window.location.href = process.env.NEXT_LOGOUT_URL;
     // };
     const handleLogout = () => {
-      window.location.href = "https://app.madstories.xyz/logout";
+      // window.location.href = "https://app.madstories.xyz/logout";
+      window.location.href = process.env.NEXT_PUBLIC_LOGOUT_URL;
     }; 
-
+    // https://app.madstories.xyz/linkedin-login
+    // https://app.madstories.xyz/logout
+    // https://app.madstories.xyz/api/user-data/
+    // https://app.madstories.xyz/api/chatbot
+    // https://app.madstories.xyz/api/token/refresh/
   return (
     <div className="bg-[#F5F5F5] text-main-dark overflow-hidden">
      <div className="w-full p-5">
