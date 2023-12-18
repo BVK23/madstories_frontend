@@ -29,8 +29,9 @@ export async function getServerSideProps(context) {
       destroyCookie(context, 'access_token');
       const refreshData = await refreshResponse.json();
       accessToken = refreshData.access;
-      setCookie(context, 'access_token', accessToken, { path: '/' });
-
+      setCookie(context, 'access_token', accessToken,  { path: '/', domain: '.madstories.xyz', secure: true, sameSite: 'None'});
+      // setCookie(context, 'refresh_token', accessToken, { path: '/', domain: '.madstories.xyz', secure: true, sameSite: 'None'});
+      console.log(refreshData);
       // Retry fetching user data with new access token
       response = await fetch(process.env.NEXT_USER_DATA_API_URL, {
         headers: { 'Authorization': `Bearer ${accessToken}` },
