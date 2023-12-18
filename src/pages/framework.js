@@ -2,16 +2,7 @@ import React, { useEffect } from 'react';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import { parseCookies } from 'nookies';
-
-export const getServerSideProps = (context) => {
-  const cookies = parseCookies(context);
-  const isLoggedIn = !!cookies['access_token'];
-
-  return { props: { isLoggedIn } };
-};
-
-const Framework = ({ isLoggedIn }) => {
+const Framework = () => {
   useEffect(() => {
     const handleScroll = () => {
       const weeks = document.querySelectorAll('.week');
@@ -36,7 +27,7 @@ const Framework = ({ isLoggedIn }) => {
   return (
     <>
       <div className="bg-[#F5F5F5] overflow-hidden ">
-        <Header isLoggedIn={isLoggedIn} />
+        <Header/>
 
         <div className="mainCont relative text-main-dark mb-[100px] mt-[200px] md2:mt-[250px] z-30">
 

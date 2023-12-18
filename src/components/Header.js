@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-// import { parseCookies } from 'nookies';
 
-const Header = ({ isLoggedIn }) => {
+import { useAuth } from '../src/context/authContext'; // Adjust the path as necessary
+
+
+const Header = () => {
   const [menu, setmenu] = useState("translate-x-full");
-  
+  const { isLoggedIn } = useAuth();
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLinkedInAuth = (e) => {
