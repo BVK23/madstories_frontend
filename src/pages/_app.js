@@ -1,4 +1,4 @@
-import { AuthProvider } from '../src/context/authContext'; // Adjust the path as necessary
+import { AuthProvider } from '../context/authContext'; // Adjust the path as necessary
 import '@/styles/globals.css';
 
 export default function App({ Component, pageProps }) {
