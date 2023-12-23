@@ -18,13 +18,13 @@ const testimonials = [
     comment: "Indeed, attending your session today was genuinely worthwhile. The way you broke down the strategic plan was refreshingly insightful, and I'm eager to implement the steps you shared.",
   },
 
-  {
-    image: "https://media.licdn.com/dms/image/D4E35AQHVf-ZikeikmQ/profile-framedphoto-shrink_400_400/0/1696960004431?e=1703365200&v=beta&t=-8EPkMAbIDoqHq9MSA3v4Ihp9UWEV-_-BXGUl64lAH0",
-    name: "Santosh",
-    company: "University of Sheffield",
-    occupation: "MSc in Management",
-    comment: "Had thoughtful insights from Shaki, Varun and Aarthi. Thank you for organizing this guys. Keep doing it ✌️",
-  },
+  // {
+  //   image: "https://media.licdn.com/dms/image/D4E35AQHVf-ZikeikmQ/profile-framedphoto-shrink_400_400/0/1696960004431?e=1703365200&v=beta&t=-8EPkMAbIDoqHq9MSA3v4Ihp9UWEV-_-BXGUl64lAH0",
+  //   name: "Santosh",
+  //   company: "University of Sheffield",
+  //   occupation: "MSc in Management",
+  //   comment: "Had thoughtful insights from Shaki, Varun and Aarthi. Thank you for organizing this guys. Keep doing it ✌️",
+  // },
 
   {
     image: "https://media.licdn.com/dms/image/D4E03AQH7PcanaJ-glQ/profile-displayphoto-shrink_400_400/0/1675117726392?e=1707955200&v=beta&t=hX1opzeRk2iWjxpV4w3Px4e2BNNovDmemetAxItdh7c",
