@@ -11,7 +11,7 @@ const testimonials = [
   },
 
   {
-    image: "https://media.licdn.com/dms/image/D5635AQEUsaLQqpmCrA/profile-framedphoto-shrink_400_400/0/1701707674325?e=1703365200&v=beta&t=K5H96G6sDdPnucSN9qObnFzD0Juw9TWVarZskS_gCMc",
+    image: "https://media.licdn.com/dms/image/D4E03AQG3dt-HjMexbA/profile-displayphoto-shrink_800_800/0/1676293674192?e=1708560000&v=beta&t=WEMQEAqpbKqaevzaF15G5bsgbwBxGMXuIpEdfWA9ss8",
     name: "Sapna",
     company: "University of Edinburgh",
     occupation: "MSc HR Management",

@@ -3,8 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -100,4 +105,36 @@ body {
 .week {
   opacity: 0;
   transition: opacity 0.7s ease;
+}
+
+/* Chat Loading Animation */
+@keyframes lds-dots {
+  0%, 20% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.lds-dots div {
+  animation: lds-dots 1.2s cubic-bezier(0.5, 0, 1, 1) infinite;
+}
+
+.lds-dots div:nth-child(1) {
+  left: 3px;
+  animation-delay: 0s;
+}
+
+.lds-dots div:nth-child(2) {
+  left: 12px;
+  animation-delay: -0.4s;
+}
+
+.lds-dots div:nth-child(3) {
+  left: 20px;
+  animation-delay: -0.8s;
 }

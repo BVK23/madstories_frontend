@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
+import { parseCookies } from 'nookies';
 import { useAuth } from '../context/authContext'; // Adjust the path as necessary
 
 
 const Header = () => {
   const [menu, setmenu] = useState("translate-x-full");
   const { isLoggedIn } = useAuth();
+  // console.log("isLoggedIn state in Header:", isLoggedIn); // To debug
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // useEffect(() => {
+  //   const checkLoginStatus = () => {
+  //     const cookies = parseCookies();
+  //     setIsLoggedIn(!!cookies['access_token']);
+  //   };
+
+  //   const intervalId = setInterval(checkLoginStatus, 1000); // Check every second
+
+  //   return () => clearInterval(intervalId);
+  // }, [setIsLoggedIn]);
 
   const handleLinkedInAuth = (e) => {
     e.preventDefault(); // This prevents the default link action
